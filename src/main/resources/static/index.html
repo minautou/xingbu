@@ -4,18 +4,68 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type="text/css">
+        .clearfix:after{
+            content:'';
+            visibility:hidden;
+            font-size:0;
+            height:0;
+            display:block;
+            clear:both;
+        }
+
+        .container{
+            width:100%;
+            text-align:center;
+        }
+
+        ul{
+            display:inline-block;
+        }
+
+        .nav-tabs li a{display:block;height:40px;color:#8b4712;line-height:40px;font-size:15px;}
+
+        .nav-tabs li a span{font-size: 10px;}
+
+        .jh_top{height:40px;background:#ffde00}
+    </style>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">SVN</a></li>
-        <li><a href="#">iOS</a></li>
-        <li><a href="#">VB.Net</a></li>
-        <li><a href="#">Java</a></li>
-        <li><a href="#">PHP</a></li>
+<div class="container jh_top">
+    <ul class="nav nav-tabs clearfix">
+        <li class="active" name="1"><a href="#">Home</a></li>
+        <li name="2"><a href="#"><span>菜单一</span></a></li>
+        <li name="3"><a href="#"><span>菜单二</span></a></li>
+        <li name="4"><a href="#"><span>菜单三</span></a></li>
+        <li name="5"><a href="#"><span>菜单四</span></a></li>
+        <li name="6"><a href="#"><span>菜单五</span></a></li>
+        <li name="6">
+            <form class="bs-example bs-example-form" role="form">
+                <div class="row">
+                    <div class="col-lg-6" style="display: inline-table;width: 70%;">
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                Go!
+                            </button>
+                        </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </form>
+        </li>
     </ul>
-    <h1>hello</h1>
+</div>
+<h1>hello</h1>
+
+<script>
+    $("ul.nav li").click(this, function () {
+        $("ul.nav li").siblings().removeClass("active");
+        this.setAttribute("class", "active");
+    });
+</script>
 </body>
 </html>
