@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huimao.xingbu.dao.ArticleMapper">
+    <resultMap id="BaseResultMap" type="com.huimao.xingbu.model.Article">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="author" jdbcType="VARCHAR" property="author"/>
+        <result column="praisenum" jdbcType="INTEGER" property="praiseNum"/>
+        <result column="negativenum" jdbcType="INTEGER" property="negativeNum"/>
+        <result column="collectnum" jdbcType="INTEGER" property="collectNum"/>
+        <result column="commentnum" jdbcType="INTEGER" property="commentNum"/>
+        <result column="sharenum" jdbcType="INTEGER" property="shareNum"/>
+        <result column="createtime" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modifytime" jdbcType="TIMESTAMP" property="modifyTime"/>
+    </resultMap>
+    <!-- id,title,content,status,author,praiseNum, negativeNum, collectNum, commentNum,shareNum,createTime,modifyTime -->
+
+    <sql id="Base_Column_List">
+        id,title,content,status,author
+        , praisenum, negativenum, collectnum, commentnum,sharenum,createtime,modifytime
+    </sql>
+    <select id="getArticle" resultType="com.huimao.xingbu.model.Article">
+        select
+        <include refid="Base_Column_List"/>
+        FROM article
+    </select>
+</mapper>
