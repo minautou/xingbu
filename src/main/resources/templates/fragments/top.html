@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,7 +8,7 @@
 <body th:fragment="body">
     <div class="container jh_top">
         <ul class="nav nav-tabs clearfix">
-            <li class="active" name="1"><a href="#" th:text="${type}">首页</a></li>
+            <li class="active" name="1"><a href="#">首页</a></li>
             <li name="2"><a href="#"><span>算命</span></a></li>
             <li name="3"><a href="#"><span>风水</span></a></li>
             <li name="4"><a href="#"><span>专题</span></a></li>
@@ -39,5 +40,13 @@
             </li>
         </ul>
     </div>
+    <script>
+        $("ul.nav li[name]").click(this, function () {
+            $("ul.nav li[name]").removeClass("active");
+            if ($(this).is('[name]')) {
+                this.setAttribute("class", "active");
+            }
+        });
+    </script>
 </body>
 </html>
