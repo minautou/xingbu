@@ -6,6 +6,8 @@ package com.huimao.xingbu.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.huimao.xingbu.model.Article;
+import com.huimao.xingbu.model.ArticleParam;
+import com.huimao.xingbu.model.Result;
 import com.huimao.xingbu.service.ArticleService;
 
 import io.swagger.annotations.Api;
@@ -44,9 +46,10 @@ public class ArticleController {
 
     @GetMapping(value = "/getArticle")
     @ApiOperation(value = "操作接口")
-    public List<Article> getArticle(HttpServletRequest request) {
+    public Result getArticle(HttpServletRequest request) {
+        ArticleParam articleParam = new ArticleParam();
         LOGGER.info("getArticle:{}", request.getMethod());
-        List<Article> vms = articleService.getArticle();
-        return vms;
+        Result rs = articleService.getArticle(articleParam);
+        return rs;
     }
 }

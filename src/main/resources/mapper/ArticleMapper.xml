@@ -17,13 +17,22 @@
     </resultMap>
     <!-- id,title,content,status,author,praiseNum, negativeNum, collectNum, commentNum,shareNum,createTime,modifyTime -->
 
+    <resultMap id="TotalMap" type="java.lang.Long">
+        <result column="recordCounts" jdbcType="BIGINT"/>
+    </resultMap>
+
     <sql id="Base_Column_List">
         id,title,content,status,author
         , praisenum, negativenum, collectnum, commentnum,sharenum,createtime,modifytime
     </sql>
-    <select id="getArticle" resultType="com.huimao.xingbu.model.Article">
-        select
+    <select id="getArticle" parameterType="com.huimao.xingbu.model.ArticleParam" resultMap="BaseResultMap,TotalMap">
+        select sql_calc_found_rows
         <include refid="Base_Column_List"/>
-        FROM article
+        FROM article a
+        ORDER BY a.createtime DESC
+        <if test="start != null and limit != null and limit != 0">
+            limit #{start},#{limit}
+        </if>
+        ;SELECT found_rows() AS recordCounts;
     </select>
 </mapper>

@@ -688,7 +688,7 @@ a:hover{text-decoration:none;color:#09f}
 * html .clear,* html .main{height:1%}
 .clear,.main{display:block;}
 li,ol,ul{list-style:none}
-.jh_top{height:50px;background:#ffde00}
+.jh_top{height:50px;background:#ffde00;width: 100%}
 
 .jh_top .logo{float:left;margin-right:30px}
 .nav_ul{float:left}

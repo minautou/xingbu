@@ -7,6 +7,8 @@ package com.huimao.xingbu.service;
 import com.huimao.xingbu.controller.ArticleController;
 import com.huimao.xingbu.dao.ArticleMapper;
 import com.huimao.xingbu.model.Article;
+import com.huimao.xingbu.model.ArticleParam;
+import com.huimao.xingbu.model.Result;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,8 +34,12 @@ public class ArticleService {
     @Resource
     private ArticleMapper articleMapper;
 
-    public List<Article> getArticle() {
-        return articleMapper.getArticle();
+    public Result getArticle(ArticleParam articleParam) {
+        List<Object> objects = articleMapper.getArticle(articleParam);
+        List<Article> articleList = (List<Article>) objects.get(0);
+        long total = ((List<Long>) objects.get(1)).get(0);
+        Result result = new Result(total, articleList);
+        return result;
     }
 
 }
