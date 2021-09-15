@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * HelloController
  *
@@ -36,6 +38,20 @@ public class HelloController {
     @RequestMapping("/")
     public String hello(Model model){
         ArticleParam articleParam = new ArticleParam();
+        Result articleList = articleService.getArticle(articleParam);
+        model.addAttribute("articleList", articleList);
+        model.addAttribute("type", "main");
+        return "index";
+    }
+
+    @RequestMapping("/index")
+    public String index(Model model, HttpServletRequest request){
+        ArticleParam articleParam = new ArticleParam();
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+        int start =  pageSize * pageNumber - pageSize;
+        articleParam.setLimit(pageSize);
+        articleParam.setStart(start);
         Result articleList = articleService.getArticle(articleParam);
         model.addAttribute("articleList", articleList);
         model.addAttribute("type", "main");
