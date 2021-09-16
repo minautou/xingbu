@@ -285,8 +285,8 @@
         });
 
         var total = [[${articleList.getTotal()}]],//数据总条数
-            pageNumber = 1,//当前页
-            pageSize = 8, //每页显示的条数
+            pageNumber = [[${pageNumber}]],//当前页
+            pageSize = 1, //每页显示的条数
             edges = 2,//两侧显示的页码数 大于1
             playes = 5,//主页码区显示的页码数 大于3
             pages = Math.ceil(total / pageSize);//总页数

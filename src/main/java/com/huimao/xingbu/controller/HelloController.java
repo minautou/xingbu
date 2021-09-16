@@ -55,6 +55,7 @@ public class HelloController {
         Result articleList = articleService.getArticle(articleParam);
         model.addAttribute("articleList", articleList);
         model.addAttribute("type", "main");
+        model.addAttribute("pageNumber", pageNumber);
         return "index";
     }
 }
