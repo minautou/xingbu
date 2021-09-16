@@ -14,7 +14,7 @@ package com.huimao.xingbu.model;
  **/
 public class ArticleParam {
     private int start = 0;
-    private int limit = 8;
+    private int limit = 2;
 
     public int getStart() {
         return start;
