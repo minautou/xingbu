@@ -18,8 +18,10 @@ public class Article {
     private String id;
     private String title;
     private String content;
+    private String detail;
     private String status;
     private String author;
+    private String category;
     private int praiseNum;
     private int negativeNum;
     private int collectNum;
@@ -66,6 +68,14 @@ public class Article {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public int getPraiseNum() {
@@ -122,5 +132,13 @@ public class Article {
 
     public void setModifyTime(Timestamp modifyTime) {
         this.modifyTime = modifyTime;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 }

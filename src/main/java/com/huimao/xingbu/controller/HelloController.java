@@ -41,21 +41,29 @@ public class HelloController {
         Result articleList = articleService.getArticle(articleParam);
         model.addAttribute("articleList", articleList);
         model.addAttribute("type", "main");
+        model.addAttribute("pageNumber", articleParam.getStart() / articleParam.getLimit() + 1);
+        model.addAttribute("pageSize", articleParam.getLimit());
         return "index";
     }
 
     @RequestMapping("/index")
     public String index(Model model, HttpServletRequest request){
         ArticleParam articleParam = new ArticleParam();
-        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
-        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-        int start =  pageSize * pageNumber - pageSize;
-        articleParam.setLimit(pageSize);
-        articleParam.setStart(start);
+        int pageSize = 5;
+        if (request.getParameter("pageSize") != null) {
+            pageSize = Integer.parseInt(request.getParameter("pageSize"));
+            articleParam.setLimit(pageSize);
+        }
+        int pageNumber = 1;
+        if (request.getParameter("pageNumber") != null) {
+            pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+            int start =  articleParam.getLimit() * pageNumber - articleParam.getLimit();
+            articleParam.setStart(start);
+        }
         Result articleList = articleService.getArticle(articleParam);
         model.addAttribute("articleList", articleList);
-        model.addAttribute("type", "main");
         model.addAttribute("pageNumber", pageNumber);
+        model.addAttribute("pageSize", pageSize);
         return "index";
     }
 }

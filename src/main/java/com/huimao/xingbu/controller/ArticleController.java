@@ -52,4 +52,6 @@ public class ArticleController {
         Result rs = articleService.getArticle(articleParam);
         return rs;
     }
+
+
 }

@@ -7,6 +7,7 @@
         <result column="content" jdbcType="VARCHAR" property="content"/>
         <result column="status" jdbcType="VARCHAR" property="status"/>
         <result column="author" jdbcType="VARCHAR" property="author"/>
+        <result column="category" jdbcType="VARCHAR" property="category"/>
         <result column="praisenum" jdbcType="INTEGER" property="praiseNum"/>
         <result column="negativenum" jdbcType="INTEGER" property="negativeNum"/>
         <result column="collectnum" jdbcType="INTEGER" property="collectNum"/>
@@ -22,17 +23,44 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,title,content,status,author
+        id,title,content,status,author,category
+        , praisenum, negativenum, collectnum, commentnum,sharenum,createtime,modifytime
+    </sql>
+    <sql id="Detail_Column_List">
+        id,title,content,status,author,category,detail
         , praisenum, negativenum, collectnum, commentnum,sharenum,createtime,modifytime
     </sql>
     <select id="getArticle" parameterType="com.huimao.xingbu.model.ArticleParam" resultMap="BaseResultMap,TotalMap">
         select sql_calc_found_rows
         <include refid="Base_Column_List"/>
         FROM article a
+        <where>
+            <if test="category != null">
+                AND a.category = #{category}
+            </if>
+            <if test="id != null">
+                AND a.id = #{id}
+            </if>
+        </where>
         ORDER BY a.createtime DESC
         <if test="start != null and limit != null and limit != 0">
             limit #{start},#{limit}
         </if>
         ;SELECT found_rows() AS recordCounts;
     </select>
+
+    <select id="getArticleDetail" parameterType="com.huimao.xingbu.model.ArticleParam" resultType="com.huimao.xingbu.model.Article">
+        select
+        <include refid="Detail_Column_List"/>
+        FROM article a
+        <where>
+            <if test="category != null">
+                AND a.category = #{category}
+            </if>
+            <if test="id != null">
+                AND a.id = #{id}
+            </if>
+        </where>
+    </select>
+
 </mapper>

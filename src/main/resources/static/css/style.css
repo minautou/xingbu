@@ -104,7 +104,7 @@ em,i{font-style:normal}
 .one-cont-title .one-cont-font em{float:left}
 .one-cont-title .one-cont-font i{line-height:34px;padding-left:10px;width:63%;display:inline-block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .one-cont-title .one-cont-font em img{width:34px;height:34px;border-radius:50%}
-.fonts{font-size:16px;line-height:1.8;color:#4d4d4d;padding-bottom:10px;padding-left:0px}
+.fonts{text-align: center;font-size:16px;line-height:1.8;color:#4d4d4d;padding-bottom:10px;padding-left:0px}
 .discuss{width:100%;border-top:1px solid #efefef}
 ul.discuss li{position:relative;float:left;padding-right:19px;cursor:pointer}
 ul.discuss li a{display:block}

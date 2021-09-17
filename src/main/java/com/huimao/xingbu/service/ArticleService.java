@@ -42,4 +42,9 @@ public class ArticleService {
         return result;
     }
 
+    public Article getArticleDetail(ArticleParam articleParam) {
+        Article article = articleMapper.getArticleDetail(articleParam);
+        return article;
+    }
+
 }

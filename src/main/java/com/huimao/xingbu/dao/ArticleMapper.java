@@ -10,4 +10,7 @@ import java.util.List;
 @Mapper
 public interface ArticleMapper {
     List<Object> getArticle(ArticleParam articleParam);
+
+    Article getArticleDetail(ArticleParam articleParam);
+
 }
