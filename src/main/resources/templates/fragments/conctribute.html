@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="toug" style="display: none;">
+        <div class="bgs"></div>
+        <div class="upload" style="">
+            <div class="upload-top clearfix">
+                <span>投稿</span><em class="tou-qu">取消</em>
+            </div>
+            <div class="upload-main" style="">
+                <input id="upload_type" type="text" name="type" value="1" style="display: block">
+                <input id="txtArticleType" type="hidden" value="4">
+                <div class="upload-con" style="">
+                    <div class="boxs" style="">
+                        <div class="joke-post">
+                            <table style="margin-bottom: 10px;">
+                                <tbody><tr>
+                                    <td>文章分类:</td>
+                                    <td>
+                                        <div id="Div_articlecategory">
+                                            <input type="hidden" name="articlecategory" id="articlecategory" value="2"><input type="hidden" name="ParentIdList" id="ParentIdList" value="|1|2|"><span class="select-box inline"><select name="articlecategory1" id="articlecategory1" class="select" onchange="mySelect.ShowCategory(2);mySelect.SaveId(1);" style="display: block;"><option value="">--------</option><option value="1">文化</option></select></span><span class="select-box inline"><select name="articlecategory2" id="articlecategory2" class="select" onchange="mySelect.ShowCategory(3);mySelect.SaveId(2);" style="display: block;"><option value="">--------</option><option value="2">文化</option><option value="3">风水</option><option value="4">算命</option></select></span></div>
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </div>
+                        <div id="divContent" style="" class="joke-post">
+                            <div>
+                                <input type="text" class="select-box" style="margin-bottom: 10px;" id="txtTitle" placeholder="请输入文章标题">
+                            </div>
+                            <div id="txtContent" class="edui-default" style="width: 100%;">sss</div>
+                        </div>
+                    </div>
+
+                    <div class="interpret">
+                        <input type="hidden" id="hidArticleId" name="hidArticleId">
+                        <input type="button" class="sub_jokes" id="subok" value="发表">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
