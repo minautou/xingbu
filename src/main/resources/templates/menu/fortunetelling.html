@@ -9,7 +9,7 @@
 
         <div class="content">
 
-            <div class="grid clearfix" style="text-align: left;margin-left: 580px;">
+            <div class="grid clearfix" style="text-align: left;margin-left: 555px;">
                 <div class="content-left" style="width: 550px;">
 
                     <div class="one-cont" th:each="article,stat :${articleList.getBody()}">
@@ -150,8 +150,8 @@
         <script th:inline="javascript">
             var total = [[${articleList.getTotal()}]],//数据总条数
                 pageNumber = [[${pageNumber}]],//当前页
-                pageSize = [[${pageSize}]] //每页显示的条数
-
+                pageSize = [[${pageSize}]], //每页显示的条数
+                category = 'fortunetelling' //类型
         </script>
 
         <footer th:include="fragments/footer :: body" th:remove="tag"></footer>

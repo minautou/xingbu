@@ -7,6 +7,7 @@ window.onload = function () {
         $('#myCarousel').carousel({interval: 4000}); //每隔4秒自动轮播
     });
 
+    // 分页组件begin
     var edges = 2,//两侧显示的页码数 大于1
         playes = 5,//主页码区显示的页码数 大于3
         pages = Math.ceil(total / pageSize);//总页数
@@ -106,7 +107,29 @@ window.onload = function () {
     }
 
     function renderPageAndData(pageNumber, pageSize) {
-        var urlstr = /*[[@{/articleView/fortune-telling}]]*/ "/index";
-        window.location.href = urlstr + '?pageNumber=' + pageNumber + '&pageSize=' + pageSize;
+        let urlStr;
+        switch(category) {
+            case 'fortunetelling':
+                urlStr = "/articleView/fortune-telling";
+                break;
+            case 'fengshui':
+                urlStr = "/articleView/fengshui";
+                break;
+            case 'culture':
+                urlStr = "/articleView/culture";
+                break;
+            case 'column':
+                urlStr = "/articleView/column";
+                break;
+            case 'classification':
+                urlStr = "/articleView/classification";
+                break;
+            default:
+                urlStr = "/index";
+        }
+        window.location.href = urlStr + '?pageNumber=' + pageNumber + '&pageSize=' + pageSize;
     }
+    // 分页组件end
+
+
 }
