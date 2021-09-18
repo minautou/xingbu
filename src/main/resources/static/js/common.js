@@ -3,15 +3,14 @@
  */
 
 window.onload = function () {
-    $(document).ready(function () {
-        $('#myCarousel').carousel({interval: 4000}); //每隔4秒自动轮播
-    });
-
     // 分页组件begin
     var edges = 2,//两侧显示的页码数 大于1
         playes = 5,//主页码区显示的页码数 大于3
         pages = Math.ceil(total / pageSize);//总页数
-    renderPageItem();
+    $(document).ready(function () {
+        $('#myCarousel').carousel({interval: 4000}); //每隔4秒自动轮播
+        renderPageItem();
+    });
 
     function renderPageItem() {
         $ul = $('<ul class="pagination"></ul>');
