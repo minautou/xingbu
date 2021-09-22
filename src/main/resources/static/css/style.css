@@ -182,7 +182,7 @@ ul.discuss li.active:nth-child(5) i{background-image:url(/assets/images/share-se
 .img-ers .img-ers-right{float:left}
 .toug{display:none}
 .upload{width:590px;background:#fff;position:fixed;left:50%;top:25%;outline:0;z-index:10;margin-left:-295px;margin-top:-35px}
-.upload-top{height:36px;background:#ffde00;color:#fff;padding:0 25px}
+.upload-top{height:36px;background:#ff9900;color:#fff;padding:0 25px}
 .upload-top span{line-height:36px;cursor:pointer}
 .upload-top em{float:right;height:100%;line-height:36px;cursor:pointer}
 .upload-main{width:100%;margin:0 auto}
@@ -199,7 +199,7 @@ ul.discuss li.active:nth-child(5) i{background-image:url(/assets/images/share-se
 .boxs-cont i{display:block;text-align:right;font-size:12px;padding-right:20px;color:#c4c4c4}
 .boxs-cont em{display:block;width:175px;height:64px;background:url(/assets/images/chuan.png) no-repeat;position:absolute;bottom:23px;right:105px;display:none}
 .interpret{margin-top:12px;margin-bottom:12px;display:block;text-align:center}
-.interpret input{width:100px;height:32px;line-height:32px;background:#ffde00;color:#fff;display:inline-block}
+.interpret input{width:100px;height:32px;line-height:32px;background:#ff9900;color:#fff;display:inline-block}
 .photo{margin-top:20px;width:100%;text-align:center}
 .photo-cont{display:inline-block;width:528px;position:relative}
 .upload-wrap{width:122px;height:64px;position:relative}
