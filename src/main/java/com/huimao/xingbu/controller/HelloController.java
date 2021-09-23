@@ -40,7 +40,7 @@ public class HelloController {
         ArticleParam articleParam = new ArticleParam();
         Result articleList = articleService.getArticle(articleParam);
         model.addAttribute("articleList", articleList);
-        model.addAttribute("type", "main");
+        model.addAttribute("category", "index");
         model.addAttribute("pageNumber", articleParam.getStart() / articleParam.getLimit() + 1);
         model.addAttribute("pageSize", articleParam.getLimit());
         return "index";

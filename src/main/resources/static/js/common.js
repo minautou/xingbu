@@ -10,6 +10,37 @@ window.onload = function () {
     $(document).ready(function () {
         $('#myCarousel').carousel({interval: 4000}); //每隔4秒自动轮播
         renderPageItem();
+
+        $("ul.nav li[name]").removeClass("active");
+        switch (category) {
+            case 'fortunetelling':
+                if ($("ul.nav li[name='fortunetelling']")) {
+                    $("ul.nav li[name='fortunetelling']").get(0).setAttribute("class", "active");
+                }
+                break;
+            case 'fengshui':
+                if ($("ul.nav li[name='fengshui']")) {
+                    $("ul.nav li[name='fengshui']").get(0).setAttribute("class", "active");
+                }
+                break;
+            case 'culture':
+                if ($("ul.nav li[name='culture']")) {
+                    $("ul.nav li[name='culture']").get(0).setAttribute("class", "active");
+                }
+                break;
+            case 'column':
+                if ($("ul.nav li[name='column']")) {
+                    $("ul.nav li[name='column']").get(0).setAttribute("class", "active");
+                }
+                break;
+            case 'classification':
+                if ($("ul.nav li[name='classification']")) {
+                    $("ul.nav li[name='classification']").get(0).setAttribute("class", "active");
+                }
+                break;
+            default:
+                $("ul.nav li[name='index']").get(0).setAttribute("class", "active");
+        }
     });
 
     function renderPageItem() {
