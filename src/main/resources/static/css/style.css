@@ -200,6 +200,7 @@ ul.discuss li.active:nth-child(5) i{background-image:url(/assets/images/share-se
 .boxs-cont em{display:block;width:175px;height:64px;background:url(/assets/images/chuan.png) no-repeat;position:absolute;bottom:23px;right:105px;display:none}
 .interpret{margin-top:12px;margin-bottom:12px;display:block;text-align:center}
 .interpret input{width:100px;height:32px;line-height:32px;background:#ff9900;color:#fff;display:inline-block}
+.interpret button{width:100px;height:32px;line-height:32px;background:#ff9900;color:#fff;display:inline-block}
 .photo{margin-top:20px;width:100%;text-align:center}
 .photo-cont{display:inline-block;width:528px;position:relative}
 .upload-wrap{width:122px;height:64px;position:relative}

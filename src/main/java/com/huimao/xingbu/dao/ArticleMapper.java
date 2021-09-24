@@ -13,4 +13,6 @@ public interface ArticleMapper {
 
     Article getArticleDetail(ArticleParam articleParam);
 
+    void insertArticle(Article article);
+
 }

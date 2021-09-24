@@ -27,7 +27,7 @@
                                 <p class="fonts" th:text="${article.getTitle() + ' [' + (stat.index + 1) + ']'}">
                                     title
                                 </p>
-                                <span th:text="|${#strings.substring(article.getContent(), 0, 90)}...|">content</span>
+                                <span th:text="|${#strings.substring(article.getContent(), 0, (article.getContent().length > 90 ? 90 : article.getContent().length))}...|">content</span>
                                 <div class="row"></div>
                             </div>
                         </a>

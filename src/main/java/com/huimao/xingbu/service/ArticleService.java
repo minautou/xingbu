@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * ArticleService
@@ -45,6 +46,10 @@ public class ArticleService {
     public Article getArticleDetail(ArticleParam articleParam) {
         Article article = articleMapper.getArticleDetail(articleParam);
         return article;
+    }
+
+    public void insertArticle(Article article) {
+        articleMapper.insertArticle(article);
     }
 
 }

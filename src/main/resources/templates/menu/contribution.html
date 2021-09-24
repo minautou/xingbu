@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+<header th:include="fragments/top :: body" th:remove="tag"></header>
+
+<div class="content">
+    <div class="toug" style="display: block;">
+        <div class="bgs"></div>
+        <div class="upload" style="">
+            <div class="upload-top clearfix">
+                <span>投稿</span><em class="tou-qu">取消</em>
+            </div>
+            <div class="upload-main" style="">
+                <div class="upload-con" style="">
+                    <div class="boxs" style="">
+                        <form action="/articleView/addArticle" method="post">
+                            <div class="joke-post">
+                                <table style="margin-bottom: 10px;">
+                                    <tbody>
+                                        <tr>
+                                            <td>文章分类:</td>
+                                            <td>
+                                                <div id="Div_articlecategory">
+                                                    <span class="select-box inline">
+                                                        <select name="articlecategory" id="articlecategory" class="select"
+                                                                onchange="mySelect.ShowCategory(3);mySelect.SaveId(2);"
+                                                                style="display: block;">
+                                                            <option value="culture">文化</option>
+                                                            <option value="fengshui">风水</option>
+                                                            <option value="fortunetelling">算命</option>
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="divContent" style="" class="joke-post">
+                                <div>
+                                    <input type="text" class="select-box" style="margin-bottom: 10px;" id="txtTitle" name="txtTitle"
+                                           placeholder="请输入文章标题">
+                                </div>
+                                <div id="txtContent" class="edui-default interpret" style="width: 100%;">
+                                    <div>
+                                        <textarea id="container" name="content" type="text/plain">这里写你的初始化内容</textarea>
+                                        <button id="btn" class="sub_jokes" style="margin-top: 12px;margin-bottom: 12px;" onclick="postDate()">提交</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var editor = UE.getEditor('container');
+    $(".tou-qu").on("click", function () { // 取消按钮
+        $(".toug").hide();
+        $("#texts").val("");
+        $("#image_box").find(".img-wrap").remove();
+        $("#vjs_video").remove();
+    });
+</script>
+<footer th:include="fragments/footer :: body" th:remove="tag"></footer>
+</body>
+</html>

@@ -63,4 +63,14 @@
         </where>
     </select>
 
+    <insert id="insertArticle" parameterType="com.huimao.xingbu.model.Article">
+        insert into article (id,title,content,status,author,category,detail
+        , praisenum, negativenum, collectnum, commentnum,sharenum,createtime,modifytime
+        )
+        values
+        (#{id} , #{title} , #{content} , #{status} ,#{author}, #{category} ,#{detail}
+         , #{praiseNum} ,#{negativeNum} ,#{collectNum} ,#{commentNum} ,#{shareNum} ,#{createTime} ,#{modifyTime} )
+    </insert>
+
+
 </mapper>
