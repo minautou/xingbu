@@ -11,6 +11,8 @@ import java.util.List;
 public interface ArticleMapper {
     List<Object> getArticle(ArticleParam articleParam);
 
+    List<Object> getArticleOrderPraise(ArticleParam articleParam);
+
     Article getArticleDetail(ArticleParam articleParam);
 
     void insertArticle(Article article);

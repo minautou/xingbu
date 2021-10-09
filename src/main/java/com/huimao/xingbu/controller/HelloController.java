@@ -16,7 +16,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -43,6 +45,8 @@ public class HelloController {
         model.addAttribute("category", "index");
         model.addAttribute("pageNumber", articleParam.getStart() / articleParam.getLimit() + 1);
         model.addAttribute("pageSize", articleParam.getLimit());
+
+        articleService.AddNormalArticle(model);
         return "index";
     }
 
@@ -60,6 +64,8 @@ public class HelloController {
             int start =  articleParam.getLimit() * pageNumber - articleParam.getLimit();
             articleParam.setStart(start);
         }
+
+        articleService.AddNormalArticle(model);
         Result articleList = articleService.getArticle(articleParam);
         model.addAttribute("articleList", articleList);
         model.addAttribute("pageNumber", pageNumber);

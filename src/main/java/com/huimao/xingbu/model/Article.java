@@ -14,7 +14,7 @@ import java.sql.Timestamp;
  * @author: yangwen
  * @since 2021-09-10
  **/
-public class Article {
+public class Article implements Comparable<Article> {
     private String id;
     private String title;
     private String content;
@@ -140,5 +140,14 @@ public class Article {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    @Override
+    public int compareTo(Article article) {
+        if (this.praiseNum > article.getPraiseNum()) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

@@ -49,6 +49,25 @@
         ;SELECT found_rows() AS recordCounts;
     </select>
 
+    <select id="getArticleOrderPraise" parameterType="com.huimao.xingbu.model.ArticleParam" resultMap="BaseResultMap,TotalMap">
+        select sql_calc_found_rows
+        <include refid="Base_Column_List"/>
+        FROM article a
+        <where>
+            <if test="category != null">
+                AND a.category = #{category}
+            </if>
+            <if test="id != null">
+                AND a.id = #{id}
+            </if>
+        </where>
+        ORDER BY a.praisenum DESC
+        <if test="start != null and limit != null and limit != 0">
+            limit #{start},#{limit}
+        </if>
+        ;SELECT found_rows() AS recordCounts;
+    </select>
+
     <select id="getArticleDetail" parameterType="com.huimao.xingbu.model.ArticleParam" resultType="com.huimao.xingbu.model.Article">
         select
         <include refid="Detail_Column_List"/>

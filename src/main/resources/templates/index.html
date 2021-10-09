@@ -18,23 +18,23 @@
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
             <!-- 轮播（Carousel）项目 -->
-            <div class="carousel-inner" data-interval="100" style="width: 550px;
+            <div class="carousel-inner" style="width: 550px;height: 333px;
                 margin: 0 auto 15px auto;">
                 <div class="item active">
                     <a href="/articleView/detail/fortunetelling/0fc6a1cd-145f-11ec-a692-0242ac110002">
-                        <img src="/images/slide/weixinname.jpg" alt="First slide">
-                        <div class="carousel-caption carousel-caption-appendstyle">几个好朋友的微信群名</div>
+                        <img src="/images/slide/weixinname.jpg" alt="First slide" style="max-width: none;">
+                        <div class="carousel-caption carousel-caption-appendstyle" style="margin-bottom: 30px;">几个好朋友的微信群名</div>
                     </a>
                 </div>
                 <div class="item">
                     <a href="/articleView/detail/fortunetelling/0fc6a1cd-145f-11ec-a692-0242ac110002">
-                        <img src="/images/slide/eye.jpg" alt="Second slide">
+                        <img src="/images/slide/eye.jpg" alt="Second slide" style="max-width: none;">
                         <div class="carousel-caption carousel-caption-appendstyle">右眼跳蕴含预示</div>
                     </a>
                 </div>
                 <div class="item">
                     <a href="/articleView/detail/fortunetelling/0fc6a1cd-145f-11ec-a692-0242ac110002">
-                        <img src="/images/slide/202109161720.jpg" alt="Third slide">
+                        <img src="/images/slide/202109161720.jpg" alt="Third slide" style="max-width: none;">
                         <div class="carousel-caption carousel-caption-appendstyle">从风水学讲买在11楼好吗？</div>
                     </a>
                 </div>
@@ -54,45 +54,26 @@
                 <h3 class="panel-title">热门内容</h3>
             </div>
             <div class="panel-body index-article">
-                <ul>
-                    <li class="item item-1">
+                <ul th:each="article,stat :${articleHotList}">
+                    <li class="item item-1" th:if="${stat.index} eq 0">
                         <a class="tag">推荐</a>
-                        <a class="tit" href="wh/63122.html" target="_blank">89年出生属蛇五行属什么？</a>
+                        <a class="tit"
+                           th:href="${'/articleView/detail/' + article.getCategory() + '/' + article.getId()}"
+                           th:text="${article.getTitle()}">title</a>
                     </li>
 
-                    <li class="item item-4">
-                        <a class="tag">【文化】</a>
-                        <a class="tit" href="wh/473.html" target="_blank">女士包包什么颜色聚财</a>
-                    </li>
-
-                    <li class="item item-5">
-                        <a class="tag">【文化】</a>
-                        <a class="tit" href="wh/63303.html" target="_blank">1976年中国发生了什么大事</a>
-                    </li>
-
-                    <li class="item item-6">
-                        <a class="tag">【文化】</a>
-                        <a class="tit" href="wh/30890.html" target="_blank">具有诗意的网名男生</a>
-                    </li>
-
-                    <li class="item item-7">
-                        <a class="tag">【文化】</a>
-                        <a class="tit" href="wh/11056.html" target="_blank">算命的说是童子啥意思</a>
-                    </li>
-
-                    <li class="item item-8">
-                        <a class="tag">【文化】</a>
-                        <a class="tit" href="wh/31516.html" target="_blank">十二天干地支对照表</a>
-                    </li>
-
-                    <li class="item item-9">
-                        <a class="tag">【文化】</a>
-                        <a class="tit" href="wh/35555.html" target="_blank">瑞名字中的含义是什么</a>
-                    </li>
-
-                    <li class="item item-10">
-                        <a class="tag">【文化】</a>
-                        <a class="tit" href="wh/67650.html" target="_blank">脸部出现了二条眉间纹好不好</a>
+                    <li class="item item-4" th:if="${stat.index} ne 0">
+                        <a class="tag" th:switch="${article.getCategory()}">
+                            <span th:case="'fortunetelling'">【算命】</span>
+                            <span th:case="'culture'">【文化】</span>
+                            <span th:case="'fengshui'">【风水】</span>
+                            <span th:case="'column'">【专题】</span>
+                            <span th:case="'classification'">【分类】</span>
+                            <span th:case="''">【其它】</span>
+                        </a>
+                        <a class="tit"
+                           th:href="${'/articleView/detail/' + article.getCategory() + '/' + article.getId()}"
+                           th:text="${article.getTitle()}">title</a>
                     </li>
                 </ul>
             </div>
@@ -171,25 +152,26 @@
                     <h3 class="panel-title">最新文章</h3>
                 </div>
                 <div class="panel-body index-article">
-                    <ul>
-                        <li class="item item-1">
+                    <ul th:each="article,stat :${articleNewList}">
+                        <li class="item item-1" th:if="${stat.index} eq 0">
                             <a class="tag">推荐</a>
-                            <a class="tit" href="wh/63122.html" target="_blank">89年出生属蛇五行属什么？</a>
+                            <a class="tit"
+                               th:href="${'/articleView/detail/' + article.getCategory() + '/' + article.getId()}"
+                               th:text="${article.getTitle()}">title</a>
                         </li>
 
-                        <li class="item item-4">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/473.html" target="_blank">女士包包什么颜色聚财</a>
-                        </li>
-
-                        <li class="item item-5">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/63303.html" target="_blank">1976年中国发生了什么大事</a>
-                        </li>
-
-                        <li class="item item-10">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/67650.html" target="_blank">脸部出现了二条眉间纹好不好</a>
+                        <li class="item item-4" th:if="${stat.index} ne 0">
+                            <a class="tag" th:switch="${article.getCategory()}">
+                                <span th:case="'fortunetelling'">【算命】</span>
+                                <span th:case="'culture'">【文化】</span>
+                                <span th:case="'fengshui'">【风水】</span>
+                                <span th:case="'column'">【专题】</span>
+                                <span th:case="'classification'">【分类】</span>
+                                <span th:case="''">【其它】</span>
+                            </a>
+                            <a class="tit"
+                               th:href="${'/articleView/detail/' + article.getCategory() + '/' + article.getId()}"
+                               th:text="${article.getTitle()}">title</a>
                         </li>
                     </ul>
                 </div>
@@ -199,45 +181,26 @@
                     <h3 class="panel-title">热门文章</h3>
                 </div>
                 <div class="panel-body index-article">
-                    <ul>
-                        <li class="item item-1">
+                    <ul th:each="article,stat :${articleHotList}">
+                        <li class="item item-1" th:if="${stat.index} eq 0">
                             <a class="tag">推荐</a>
-                            <a class="tit" href="wh/63122.html" target="_blank">89年出生属蛇五行属什么？</a>
+                            <a class="tit"
+                               th:href="${'/articleView/detail/' + article.getCategory() + '/' + article.getId()}"
+                               th:text="${article.getTitle()}">title</a>
                         </li>
 
-                        <li class="item item-4">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/473.html" target="_blank">女士包包什么颜色聚财</a>
-                        </li>
-
-                        <li class="item item-5">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/63303.html" target="_blank">1976年中国发生了什么大事</a>
-                        </li>
-
-                        <li class="item item-6">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/30890.html" target="_blank">具有诗意的网名男生</a>
-                        </li>
-
-                        <li class="item item-7">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/11056.html" target="_blank">算命的说是童子啥意思</a>
-                        </li>
-
-                        <li class="item item-8">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/31516.html" target="_blank">十二天干地支对照表</a>
-                        </li>
-
-                        <li class="item item-9">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/35555.html" target="_blank">瑞名字中的含义是什么</a>
-                        </li>
-
-                        <li class="item item-10">
-                            <a class="tag">【文化】</a>
-                            <a class="tit" href="wh/67650.html" target="_blank">脸部出现了二条眉间纹好不好</a>
+                        <li class="item item-4" th:if="${stat.index} ne 0">
+                            <a class="tag" th:switch="${article.getCategory()}">
+                                <span th:case="'fortunetelling'">【算命】</span>
+                                <span th:case="'culture'">【文化】</span>
+                                <span th:case="'fengshui'">【风水】</span>
+                                <span th:case="'column'">【专题】</span>
+                                <span th:case="'classification'">【分类】</span>
+                                <span th:case="''">【其它】</span>
+                            </a>
+                            <a class="tit"
+                               th:href="${'/articleView/detail/' + article.getCategory() + '/' + article.getId()}"
+                               th:text="${article.getTitle()}">title</a>
                         </li>
                     </ul>
                 </div>

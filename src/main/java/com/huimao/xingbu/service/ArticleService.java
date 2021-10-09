@@ -14,8 +14,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +40,26 @@ public class ArticleService {
 
     public Result getArticle(ArticleParam articleParam) {
         List<Object> objects = articleMapper.getArticle(articleParam);
+        List<Article> articleList = (List<Article>) objects.get(0);
+        long total = ((List<Long>) objects.get(1)).get(0);
+        Result result = new Result(total, articleList);
+        return result;
+    }
+
+    public void AddNormalArticle(Model model) {
+        ArticleParam articleParamSingle = new ArticleParam();
+        Result articleListOrderPraise = getArticleOrderPraise(articleParamSingle);
+        List<Article> articlesOrderPraise = (List<Article>) articleListOrderPraise.getBody();
+        List<Article> articlesHot = articlesOrderPraise.stream().sorted(Comparator.comparing(Article::getPraiseNum)).collect(
+            Collectors.toList());
+        model.addAttribute("articleHotList", articlesHot.subList(0, 8));
+        Result articleListSingle = getArticle(articleParamSingle);
+        List<Article> articles = (List<Article>) articleListSingle.getBody();
+        model.addAttribute("articleNewList", articles.subList(0, 4));
+    }
+
+    public Result getArticleOrderPraise(ArticleParam articleParam) {
+        List<Object> objects = articleMapper.getArticleOrderPraise(articleParam);
         List<Article> articleList = (List<Article>) objects.get(0);
         long total = ((List<Long>) objects.get(1)).get(0);
         Result result = new Result(total, articleList);

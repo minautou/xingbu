@@ -67,7 +67,7 @@ em,i{font-style:normal}
 .index-banner .hd li{display:inline-block;vertical-align:top;width:8px;height:8px;background:#fff;border-radius:50px;font-size:0;margin:0 4px;opacity:.2;-moz-transition:width .5s;-o-transition:width .5s;-webkit-transition:width .5s;transition:width .5s}
 .index-banner .hd li.on{width:24px;opacity:1;background:#ee4d4d}
 .index-banner .icon{vertical-align:top;margin:17px 0 0 12px;opacity:.2;-moz-transition:opacity .3s;-o-transition:opacity .3s;-webkit-transition:opacity .3s;transition:opacity .3s}
-.index-article{background:#fff;padding-left:14px;float:right;overflow:hidden}
+.index-article{background:#fff;padding-left:14px;float:right;overflow:hidden;}
 .index-article .row-box{border-top:1px dashed #e6e3e0;margin-top:-1px;padding-bottom:12px}
 .index-article .hd{line-height:1.2;margin:15px 0;padding-left:14px;}
 .index-article .title{font-size:18px;font-weight:700;display:inline-block;vertical-align:bottom;padding-left:1px;-moz-transform:skewX(-8deg);-ms-transform:skewX(-8deg);-webkit-transform:skewX(-8deg);transform:skewX(-8deg)}
@@ -758,7 +758,8 @@ li,ol,ul{list-style:none}
 .ne_list li .fr{font-size:12px}
 .wrapper{width:1200px;margin-left:auto;margin-right:auto}
 .content{padding-bottom:20px;margin-top: 12px;}
-ul{margin:0;padding:0;list-style-type:none}
+ul{margin:0;padding:0;list-style-type:none;}
+.panel-body ul{width: -webkit-fill-available;}
 li{display:list-item;text-align:-webkit-match-parent}
 .cf,.cl,.content-list .list-hd,.fn-clear,.form-group{zoom:1}
 .com-grid2>li,.com-grid3>li,.com-grid4>li,.com-grid5>li,.com-grid6>li,.com-grid9>li{float:left;box-sizing:border-box}
